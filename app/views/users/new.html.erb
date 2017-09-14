@@ -1,0 +1,10 @@
+<% provide(:title, t('.sign_up')) %>
+<% provide(:button_text, t('.create_my_account')) %>
+<h1><%= yield(:title) %></h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%# 登録に失敗した場合にも/usersにリダイレクトするのでなく、/signupにする -%>
+    <%= render 'form', options: { url: signup_path } %>
+  </div>
+</div>
