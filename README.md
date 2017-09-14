@@ -1,24 +1,12 @@
-# README
+# 海岸部マイクロプラスチックの分布の視覚化アプリケーション
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 参考
+このアプリケーションは、[Michael Hartl](http://www.michaelhartl.com/)の
+[*Ruby on Rails Tutorial: Learn Web Development with Rails*](http://www.railstutorial.org/)を参考に開発しました。
 
-Things you may want to cover:
+## ライセンス
 
-* Ruby version
+[MIT License](LICENSE)
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 作者
+[小久保 温](https://akokubo.github.io/)
