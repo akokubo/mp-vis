@@ -10,16 +10,16 @@ $(document).on("ready turbolinks:load", function () {
     if ($("#infinite-scrolling").size() > 0) {
         // ウィンドウがスクロールしたとき
         $(window).on("scroll", function () {
-            // マイクロポストの次のページへのリンクを取得
-            var more_microposts_url = $(".pagination .next_page a").attr("href");
+            // 場所の次のページへのリンクを取得
+            var more_places_url = $(".pagination .next_page a").attr("href");
             // ロード中でなく、次のページへのリンクが存在し、ページの最下部 - 60pxまでスクロールしたら
-            if (!isLoading && more_microposts_url && $(window).scrollTop() > $(document).height() - $(window).height() - 60) {
+            if (!isLoading && more_places_url && $(window).scrollTop() > $(document).height() - $(window).height() - 60) {
                 // ロード中にする
                 isLoading = true;
                 // ローダーイメージを表示
                 $("#loader").show();
                 // 次のページを取得
-                $.getScript(more_microposts_url).done(function () {
+                $.getScript(more_places_url).done(function () {
                     // ローダーイメージを非表示
                     $("#loader").hide();
                     // ロードしていないにする

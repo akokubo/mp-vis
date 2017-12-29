@@ -2,11 +2,11 @@ ja:
 ### Models ###
   activerecord:
     models:
-      micropost: "つぶやき"
+      place: "場所"
       user: "ユーザー"
     attributes:
-      micropost:
-        content: "つぶやきの本文"
+      place:
+        content: "場所の本文"
         user: "ユーザー"
         created_at: "投稿日時"
         picture: "画像"
@@ -43,8 +43,8 @@ ja:
       language: "言語選択"
       ja: "日本語"
       en: "英語"
-  microposts:
-    micropost:
+  places:
+    place:
       posted: "%{time_ago}前に投稿"
       delete: "削除"
       you_sure: "本当に削除しますか？"
@@ -67,13 +67,13 @@ ja:
     error_messages:
       the_form_contains: "%{errors}がありました"
       error_count: "つエラー"
-    micropost_form:
-      compose_new_micropost: "つぶやき…"
+    place_form:
+      compose_new_place: "場所…"
       post: "投稿"
       maximum_file_size: "ファイルサイズの上限は5MBです。もっと小さいファイルを選んでください。"
     user_info:
       view_my_profile: "ユーザー情報を見る"
-      micropost_count: "件のつぶやき"
+      place_count: "件の場所"
   static_pages:
     about:
       title: "アプリについて"
@@ -82,7 +82,7 @@ ja:
     help:
       title: "ヘルプ"
     logged_in_home:
-      micropost_feed: "タイムライン"
+      place_feed: "タイムライン"
   users:
     follow:
       follow: "フォロー"
@@ -106,9 +106,9 @@ ja:
 
   # users/show
   pluralize:
-    micropost:
-      one: "つぶやき"
-      other: "つぶやき"
+    place:
+      one: "場所"
+      other: "場所"
 
 ### will_paginate ###
   will_paginate:
@@ -135,9 +135,9 @@ ja:
   # appllication/logged_in_user
   please_log_in: "ログインしてください。"
 
-  # microposts/create
-  micropost_created: "つぶやきを投稿しました！"
-  micropost_deleted: "つぶやきを削除しました"
+  # places/create
+  place_created: "場所を投稿しました！"
+  place_deleted: "場所を削除しました"
 
   # password_resets/create
   email_sent_with_password_reset_instructions: "パスワードを再設定するためのメールを送りました"

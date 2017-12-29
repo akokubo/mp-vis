@@ -1,12 +1,12 @@
 require 'test_helper'
 
-class MicropostsInterfaceTest < ActionDispatch::IntegrationTest
+class PlacesInterfaceTest < ActionDispatch::IntegrationTest
 
   def setup
     @user = users(:michael)
   end
 
-  test "micropost interface" do
+  test "place interface" do
     log_in_as(@user)
     get root_path
     assert_select 'div.pagination'
@@ -14,28 +14,28 @@ class MicropostsInterfaceTest < ActionDispatch::IntegrationTest
 
     # Invalid submission
     # 中身が空の投稿
-    assert_no_difference 'Micropost.count' do
-      post microposts_path, params: { micropost: { content: "" } }
+    assert_no_difference 'Place.count' do
+      post places_path, params: { place: { content: "" } }
     end
     assert_select 'div#error_explanation'
 
     # Valid submission
-    content = "This micropost really ties the room together"
+    content = "This place really ties the room together"
     picture = fixture_file_upload('test/fixtures/rails.png', 'image/png')
-    assert_difference 'Micropost.count', 1 do
-      post microposts_path, params: { micropost: { content: content, 
+    assert_difference 'Place.count', 1 do
+      post places_path, params: { place: { content: content, 
                                                    picture: picture } }
     end
-    assert assigns(:micropost).picture?
+    assert assigns(:place).picture?
     assert_redirected_to root_url
     follow_redirect!
     assert_match content, response.body
 
     # Delete post
     assert_select 'a', text: 'delete'
-    first_micropost = @user.microposts.paginate(page: 1).first
-    assert_difference 'Micropost.count', -1 do
-      delete micropost_path(first_micropost)
+    first_place = @user.places.paginate(page: 1).first
+    assert_difference 'Place.count', -1 do
+      delete place_path(first_place)
     end
 
     # Visit different user (no delete links)
@@ -43,10 +43,10 @@ class MicropostsInterfaceTest < ActionDispatch::IntegrationTest
     assert_select 'a', text: 'delete', count: 0
   end
 
-  test "micropost sidebar count" do
+  test "place sidebar count" do
     log_in_as(@user)
     get root_path
-    assert_match "#{@user.microposts.count} microposts", response.body
+    assert_match "#{@user.places.count} places", response.body
 
     # まだマイクロポストを投稿していないユーザー
     other_user = users(:malory)
@@ -54,11 +54,11 @@ class MicropostsInterfaceTest < ActionDispatch::IntegrationTest
     get root_path
 
     # 投稿数は0
-    assert_match "0 microposts", response.body
+    assert_match "0 places", response.body
 
     # 投稿すると増える
-    other_user.microposts.create!(content: "A micropost")
+    other_user.places.create!(content: "A place")
     get root_path
-    assert_match "1 micropost", response.body
+    assert_match "1 place", response.body
   end
 end

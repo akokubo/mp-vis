@@ -23,7 +23,7 @@ Rails.application.routes.draw do
     resources :account_activations, only: [:edit]
     # パスワード再設定を行うリソース(newとcreateがエントリー、editとupdateが再設定)
     resources :password_resets,     only: [:new, :create, :edit, :update]
-    resources :microposts,          only: [:create, :destroy]
+    resources :places,          only: [:create, :destroy]
     # フォロー/フォロー解除のリソース
     resources :relationships,       only: [:create, :destroy]
   end

@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :microposts, dependent: :destroy
+  has_many :places, dependent: :destroy
   # フォローする関係
   # ActiveRelationshipモデルは存在せず、実態はRelationshipモデル
   # RelationshipモデルからUserモデルを参照するにはuser_idでなくfollower_idを使用
@@ -127,14 +127,14 @@ class User < ApplicationRecord
 
   # Returns a user's status feed.
   def feed
-    # フォローしているユーザーと自身のユーザーIDでマイクロポストを検索
-    # Micropost.where("user_id IN (:following_ids) OR user_id = :user_id",
+    # フォローしているユーザーと自身のユーザーIDで場所を検索
+    # Place.where("user_id IN (:following_ids) OR user_id = :user_id",
     #                  following_ids: following_ids, user_id: user_id)
-    # 上記のコードだと、following_idsを求め、次にマイクロポストを検索する
+    # 上記のコードだと、following_idsを求め、次に場所を検索する
     # 下記のようにSQLにSQLを埋め込むと検索が1回で済む
     following_ids = "SELECT followed_id FROM relationships
                      WHERE  follower_id = :user_id"
-    Micropost.where("user_id IN (#{following_ids})
+    Place.where("user_id IN (#{following_ids})
                      OR user_id = :user_id", user_id: id)
   end
 

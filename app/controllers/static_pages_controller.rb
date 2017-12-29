@@ -1,8 +1,8 @@
 class StaticPagesController < ApplicationController
   def home
     if logged_in?
-      # マイクロポストの投稿フォームのために必要
-      @micropost  = current_user.microposts.build
+      # 場所の投稿フォームのために必要
+      @place  = current_user.places.build
       # フィードの表示
       @feed_items = current_user.feed.paginate(page: params[:page])
 

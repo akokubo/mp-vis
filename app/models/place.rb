@@ -1,4 +1,4 @@
-class Micropost < ApplicationRecord
+class Place < ApplicationRecord
   belongs_to :user
   default_scope -> { order(created_at: :desc) }
   # uploaders/picture_uploader.rbと関連付け

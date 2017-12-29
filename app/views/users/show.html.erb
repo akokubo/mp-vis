@@ -13,16 +13,16 @@
   </aside>
   <div class="col-md-8">
     <%= render 'follow_form' if logged_in? %>
-    <% if @user.microposts.any? %>
-      <h3><%= t('pluralize.micropost', count: 2) %> (<%= @user.microposts.count %>)</h3>
-      <ol class="microposts" id="microposts">
-        <%= render @microposts %>
+    <% if @user.places.any? %>
+      <h3><%= t('pluralize.place', count: 2) %> (<%= @user.places.count %>)</h3>
+      <ol class="places" id="places">
+        <%= render @places %>
       </ol>
-      <%# usersコントローラー内でUserオブジェクトでないMicropostオブジェクトを
+      <%# usersコントローラー内でUserオブジェクトでないPlaceオブジェクトを
           ページネーションするので、対象を明示的に指定する -%>
       <div id="infinite-scrolling">
         <div id="loader"></div>
-        <%= will_paginate @microposts %>
+        <%= will_paginate @places %>
       </div>
     <% end %>
   </div>

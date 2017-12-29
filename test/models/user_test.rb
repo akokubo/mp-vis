@@ -79,10 +79,10 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.authenticated?(:remember, '')
   end
 
-  test "association microposts should be destroyed" do
+  test "association places should be destroyed" do
     @user.save
-    @user.microposts.create!(content: "Lorem ipsum")
-    assert_difference 'Micropost.count', -1 do
+    @user.places.create!(content: "Lorem ipsum")
+    assert_difference 'Place.count', -1 do
       @user.destroy
     end
   end
@@ -109,19 +109,19 @@ class UserTest < ActiveSupport::TestCase
 
     # Posts from followed user
     # michaelのフィードにはlanaが含まれる
-    lana.microposts.each do |post_following|
+    lana.places.each do |post_following|
       assert michael.feed.include?(post_following)
     end
 
     # Posts from self
     # michaelのフィードにはmichaelが含まれる
-    michael.microposts.each do |post_self|
+    michael.places.each do |post_self|
       assert michael.feed.include?(post_self)
     end
 
     # Posts from unfollowed user
     # michaelのフィードにはarcherが含まれない
-    archer.microposts.each do |post_unfollowed|
+    archer.places.each do |post_unfollowed|
       assert_not michael.feed.include?(post_unfollowed)
     end
   end
