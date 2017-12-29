@@ -29,10 +29,10 @@ ja:
 ### Views ###
   layouts:
     footer:
-      the_ruby_on_rails_tutorial_html: '<a href="http://railstutorial.jp/">Ruby on Railsチュートリアル</a> by <a href="http://www.michaelhartl.com/">Michael Hartl</a>'
+      international_environmental_education_program_on_micro_plastics_html: '参加型マイクロプラスチック環境教育国際プログラム by <a href="https://www.jamstec.go.jp/">JAMSTEC</a> and <a href="https://www.hi-tech.ac.jp/">HIT</a>'
       news: "ニュース"
     header:
-      sample_app: "サンプルアプリ"
+      app_name: "マイクロプラスチックマップ"
       home: "ホーム"
       users_list: "ユーザー一覧"
       account: "アカウント"
@@ -166,7 +166,8 @@ ja:
 
 ### Helpers ###
   # application_helper
-  ruby_on_rails_tutorial_sample_app: "Ruby on Railsチュートリアル サンプルアプリ"
+  mapping_micro_plastics_app: "マイクロプラスチックマップアプリ"
+
 
 ### ActionMailers ###
   user_mailer:

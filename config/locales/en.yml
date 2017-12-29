@@ -39,10 +39,10 @@ en:
 ### Views ###
   layouts:
     footer:
-      the_ruby_on_rails_tutorial_html: 'The <a href="http://www.railstutorial.org/">Ruby on Rails Tutorial</a> by <a href="http://www.michaelhartl.com/">Michael Hartl</a>'
+      international_environmental_education_program_on_micro_plastics_html: 'International Environmental Education Program on Micro-plastics by <a href="https://www.jamstec.go.jp/">JAMSTEC</a> and <a href="https://www.hi-tech.ac.jp/">HIT</a>'
       news: "News"
     header:
-      sample_app: "sample app"
+      app_name: "Mapping Micro-plastics"
       home: "Home"
       users_list: "Users"
       account: "Account"
@@ -159,7 +159,7 @@ en:
 
 ### Helpers ###
   # application_helper
-  ruby_on_rails_tutorial_sample_app: "Ruby on Rails Tutorial Sample App"
+  mapping_micro_plastics_app: "Mapping Micro-plastics App"
 
 ### ActionMailer ###
   user_mailer:
