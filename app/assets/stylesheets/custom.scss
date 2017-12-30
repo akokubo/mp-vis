@@ -1,9 +1,61 @@
+/* bootstrap customize variables */
+
+$dark-primary-color: #1976d2;
+$light-primary-color: #bbdefb;
+$primary-color: #2196f3;
+$text-icons-color: #fff;
+$accent-color: #ffc107;
+$primary-text: #212121;
+$secondary-text: #757575;
+$divider-color: #bdbdbd;
+
+$gray-base: $primary-text;
+
+$font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Hiragino Kaku Gothic ProN", "游ゴシック Medium", YuGothic, YuGothicM, メイリオ, Meiryo, Helvetica, Arial, sans-serif;
+$font-family-serif: Georgia, "Hiragino Mincho ProN", 游明朝, "Yu Mincho", YuMincho, HGS明朝E, メイリオ, Meiryo, "Times New Roman", Times, serif;
+$font-family-monospace: Menlo, Monaco, Consolas, "Courier New", monospace;
+
+$navbar-default-color: $primary-text;
+$navbar-default-bg: $divider-color;
+$navbar-default-border: darken($navbar-default-bg, 6.5%);
+$navbar-default-link-color: #777;
+$navbar-default-link-hover-color: #333;
+$navbar-default-link-hover-bg: transparent;
+$navbar-default-link-active-color: #555;
+$navbar-default-link-active-bg: darken($navbar-default-bg, 6.5%);
+$navbar-default-link-disabled-color: #ccc;
+$navbar-default-link-disabled-bg: transparent;
+$navbar-default-brand-color: $navbar-default-link-color;
+$navbar-default-brand-hover-color: darken($navbar-default-brand-color, 10%);
+$navbar-default-brand-hover-bg: transparent;
+$navbar-default-toggle-hover-bg: #ddd;
+$navbar-default-toggle-icon-bar-bg: #888;
+$navbar-default-toggle-border-color: #ddd;
+
+$navbar-inverse-color: lighten($light-primary-color, 15%);
+$navbar-inverse-bg: $primary-color;
+$navbar-inverse-border: darken($navbar-inverse-bg, 10%);
+$navbar-inverse-link-color: lighten($light-primary-color, 15%);
+$navbar-inverse-link-hover-color: #fff;
+$navbar-inverse-link-hover-bg: transparent;
+$navbar-inverse-link-active-color: $navbar-inverse-link-hover-color;
+$navbar-inverse-link-active-bg: darken($navbar-inverse-bg, 10%);
+$navbar-inverse-link-disabled-color: #444;
+$navbar-inverse-link-disabled-bg: transparent;
+$navbar-inverse-brand-color: $navbar-inverse-link-color;
+$navbar-inverse-brand-hover-color: #fff;
+$navbar-inverse-brand-hover-bg: transparent;
+$navbar-inverse-toggle-hover-bg: #333;
+$navbar-inverse-toggle-icon-bar-bg: #fff;
+$navbar-inverse-toggle-border-color: #333;
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
 /* mixins, variables, etc. */
 
 $gray-medium-light: #eaeaea;
+
 
 @mixin box_sizing {
   -moz-box-sizing:    border-box;
@@ -85,11 +137,11 @@ footer {
   padding-top: 5px;
   border-top: 1px solid $gray-medium-light;
 */
-  color: $gray-light;
+  color: $secondary-text;
   a {
-    color: $gray;
+    color: $primary-text;
     &:hover {
-      color: $gray-darker;
+      color: darken($primary-text, 6.5%);
     }
   }
   small {
