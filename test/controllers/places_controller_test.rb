@@ -8,7 +8,7 @@ class PlacesControllerTest < ActionDispatch::IntegrationTest
 
   test "should redirect create when not logged in" do
     assert_no_difference 'Place.count' do
-      post places_path, params: { place: { content: "Lorem ipsum" } }
+      post places_path, params: { place: { description: "Lorem ipsum" } }
     end
     assert_redirected_to login_url
   end

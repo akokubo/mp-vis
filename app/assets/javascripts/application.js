@@ -15,4 +15,6 @@
 //= require bootstrap
 //= require turbolinks
 //= require_tree .
-//= require infinite_scroll
+//= require moment
+//= require moment/ja.js
+//= require bootstrap-datetimepicker

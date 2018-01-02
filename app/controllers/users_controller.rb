@@ -13,14 +13,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     redirect_to root_url and return unless @user.activated?
     @places = @user.places.paginate(page: params[:page])
-
-    # infinite scrollの表示
-    @objects = @places
-    @target = "#places"
-    respond_to do |format|
-      format.html
-      format.js { render 'shared/_next_page' }
-    end
   end
 
   def new

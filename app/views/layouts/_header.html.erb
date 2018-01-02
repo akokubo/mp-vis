@@ -1,5 +1,5 @@
 <!-- Static navbar -->
-<header class="navbar navbar-inverse navbar-fixed-top" id="header">
+<header class="navbar navbar-inverse navbar-fixed-top">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -8,12 +8,12 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <%= link_to t('.app_name'), root_path, class: "navbar-brand" %>
+      <%= link_to t('.app_name'), root_path, class: "navbar-brand", "data-turbolinks" => "false" %>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li class="active"><%= link_to t('.home'), root_path %></li>
-        <li><a href="#">places</a></li>
+        <li class="active"><%= link_to t('.home'), root_path, "data-turbolinks" => "false" %></li>
+        <li><%= link_to t('.places_list'), places_path %></li>
         <% if logged_in? %>
           <li><%= link_to t('.users_list'), users_path %></li>
           <li class="dropdown">
@@ -39,7 +39,7 @@
             </a>
               <ul class="dropdown-menu">
                 <% I18n.available_locales.each do |locale| %>
-                  <li><a href="/<%= locale.to_s %>"><%= t('.' + locale.to_s) %></a></li>
+                  <li><a href="/<%= locale.to_s %>" data-turbolinks="false"><%= t('.' + locale.to_s) %></a></li>
                 <% end %>
               </ul>
           </li>

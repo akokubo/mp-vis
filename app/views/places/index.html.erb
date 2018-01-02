@@ -1,0 +1,48 @@
+<h1><%= t('.listing_places') %></h1>
+
+<% if logged_in? %>
+  <%= link_to t('.new_place'), new_place_path, class: "btn btn-primary", "data-turbolinks" => "false" %>
+<% end %>
+
+<br>
+
+<%= will_paginate @places %>
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th><%= User.model_name.human %></th>
+      <th><%= Place.human_attribute_name(:name) %></th>
+      <th><%= Place.human_attribute_name(:mass) %></th>
+      <th><%= Place.human_attribute_name(:collected_at) %></th>
+      <% if logged_in? %>
+        <th colspan="3"></th>
+      <% else %>
+        <th></th>
+      <% end %>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @places.each do |place| %>
+      <tr>
+        <td><a href="<%= user_path(place.user) %>"><%= gravatar_for place.user, size: 50 %></a>
+          <%= link_to place.user.name, place.user %></td>
+        <td><%= place.name %></td>
+        <td><%= place.mass %></td>
+        <td><%= place.collected_at %></td>
+        <td><%= link_to t('.show'), place, "data-turbolinks" => "false" %></td>
+        <% if logged_in? %>
+          <% if current_user?(place.user) %>
+            <td><%= link_to t('.edit'), edit_place_path(place), "data-turbolinks" => "false" %></td>
+            <td><%= link_to t('.destroy'), place, method: :delete, data: { confirm: t('.are_you_sure') } %></td>
+          <% else %>
+            <td></td>
+            <td></td>
+          <% end %>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= will_paginate @places %>

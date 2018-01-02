@@ -1,0 +1,48 @@
+<table class="table table-striped">
+  <tr>
+    <th><%= User.model_name.human %></th>
+    <td>
+      <%= gravatar_for @place.user, size: 50 %>
+      <%= @place.user.name %>
+    </td>
+  </tr>
+  <tr>
+    <th><%= Place.human_attribute_name('name') %></th>
+    <td><%= @place.name %></td>
+  </tr>
+  <tr>
+    <th>Map</th>
+    <td><div id="map-position-show" style="width: 100%; height: 205px; border: 1px solid black;"></div></td>
+  </tr>
+  <script src="/google-map-position-show.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC3igLoXPMmVDozoUpdWh2BVvoXR0alB0w&callback=initMapPositionShow" async defer></script>
+  <tr>
+    <th><%= Place.human_attribute_name('latitude') %></th>
+    <td id="place_latitude"><%= @place.latitude %></td>
+  </tr>
+  <tr>
+    <th><%= Place.human_attribute_name('longitude') %></th>
+    <td id="place_longitude"><%= @place.longitude %></td>
+  </tr>
+  <tr>
+    <th><%= Place.human_attribute_name('mass') %></th>
+    <td><%= @place.mass %></td>
+  </tr>
+  <tr>
+    <th><%= Place.human_attribute_name('collected_at') %></th>
+    <td><%= @place.collected_at %></td>
+  </tr>
+  <tr>
+    <th><%= Place.human_attribute_name('description') %></th>
+    <td><%= @place.description %></td>
+  </tr>
+    <tr>
+    <th><%= Place.human_attribute_name('picture') %></th>
+    <td><%= @place.picture %><br><%= image_tag @place.picture if @place.picture? %></td>
+  </tr>
+</table>
+
+<% if logged_in? and current_user?(@place.user) %>
+  <%= link_to t('.edit'), edit_place_path(@place), class: "btn btn-default", "data-turbolinks" => "false" %>
+<% end %>
+<%= link_to t('.back'), places_path, class: "btn btn-default" %>

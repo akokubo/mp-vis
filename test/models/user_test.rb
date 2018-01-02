@@ -81,7 +81,7 @@ class UserTest < ActiveSupport::TestCase
 
   test "association places should be destroyed" do
     @user.save
-    @user.places.create!(content: "Lorem ipsum")
+    @user.places.create!(name: "Lorem ipsum", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", mass: 3.1, latitude: 37.402473, longitude: -122.3212843, collected_at: 10.minutes.ago)
     assert_difference 'Place.count', -1 do
       @user.destroy
     end

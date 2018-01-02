@@ -1,16 +1,10 @@
-<li id="place-<%= place.id %>">
-  <%= link_to gravatar_for(place.user, size: 50), place.user %>
-  <span class="user"><%= link_to place.user.name, place.user %></span>
-  <span class="content">
-    <%= place.content %>
-    <%# 画像が存在した時だけ表示 -%>
-    <%= image_tag place.picture.url if place.picture? %>
-  </span>
-  <span class="timestamp">
-    <%= t('.posted', time_ago: time_ago_in_words(place.created_at)) %>
-    <% if current_user?(place.user) %>
-      <%= link_to t('.delete'), place, method: :delete,
-                                       data: { confirm: t('.you_sure') } %>
-    <% end %>
-  </span>
-</li>
+<tr>
+  <td><%= place.name %></td>
+  <td><%= place.mass %></td>
+  <td><%= place.collected_at %></td>
+  <td><%= link_to t('.show'), place %></td>
+  <% if logged_in? and current_user?(place.user) %>
+      <td><%= link_to t('.edit'), edit_place_path(place) %></td>
+      <td><%= link_to t('.destroy'), place, method: :delete, data: { confirm: t('.are_you_sure') } %></td>
+  <% end %>
+</tr>

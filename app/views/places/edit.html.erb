@@ -1,0 +1,6 @@
+<h1><%= t('.editing_place') %></h1>
+
+<%= render 'form', place: @place %>
+
+<%= link_to t('.show'), @place, class: "btn btn-default", "data-turbolinks" => "false" %>
+<%= link_to t('.back'), places_path, class: "btn btn-default" %>

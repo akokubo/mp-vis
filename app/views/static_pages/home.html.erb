@@ -1,5 +1,3 @@
-<% if logged_in? %>
-  <%= render 'static_pages/logged_in_home' %>
-<% else %>
-  <%= render 'static_pages/logged_out_home' %>
-<% end %>
+<div id="map"></div>
+<script src="google-map.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC3igLoXPMmVDozoUpdWh2BVvoXR0alB0w&callback=initMap" async defer></script>

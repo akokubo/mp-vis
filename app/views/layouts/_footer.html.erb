@@ -1,13 +1,19 @@
-<footer class="footer navbar navbar-default navbar-fixed-bottom">
+<footer class="navbar navbar-fixed-bottom">
   <div class="container">
-    <small><%= t('.international_environmental_education_program_on_micro_plastics_html') %></small>
-    <nav>
-      <ul>
-        <li><%= link_to t('static_pages.about.title'),   about_path %></li>
+    <div class="md">
+      <p class="navbar-text"><%= t('.international_environmental_education_program_on_micro_plastics_html') %></p>
+      <ul class="nav navbar-nav navbar-right md-ul">
+        <li><%= link_to t('static_pages.about.title'), about_path %></li>
         <li><%= link_to t('static_pages.help.title'), help_path %></li>
         <li><%= link_to t('static_pages.contact.title'), contact_path %></li>
         <li><a href="#"><%= t('.news') %></a></li>
       </ul>
-    </nav>
+      <div class="row xs-row">
+        <%= link_to t('static_pages.about.title'), about_path, class: "col-xs-6" %>
+        <%= link_to t('static_pages.help.title'), help_path, class: "col-xs-6"  %>
+        <%= link_to t('static_pages.contact.title'), contact_path, class: "col-xs-6"  %>
+        <a href="#" class="col-xs-6"><%= t('.news') %></a>
+      </div>
+    </div>
   </div>
 </footer>

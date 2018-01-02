@@ -1,8 +1,31 @@
 class PlacesController < ApplicationController
-  before_action :logged_in_user, only: [:create, :destroy]
+  before_action :logged_in_user, except: [:index, :show]
   # 自分で投稿した場所だけ削除可能
-  before_action :correct_user,   only: :destroy
+  before_action :correct_user,   only: [:edit, :update, :destroy]
 
+  # GET /places
+  # GET /places.json
+  def index
+    @places = Place.paginate(page: params[:page])
+  end
+
+  # GET /places/1
+  # GET /places/1.json
+  def show
+    @place = Place.find(params[:id])
+  end
+
+  # GET /places/new
+  def new
+    @place = current_user.places.build(latitude: 40.5092745, longitude: 141.4311736)
+  end
+
+  # GET /places/1/edit
+  def edit
+  end
+
+  # POST /places
+  # POST /places.json
   def create
     @place = current_user.places.build(place_params)
     if @place.save
@@ -15,6 +38,22 @@ class PlacesController < ApplicationController
     end
   end
 
+  # PATCH/PUT /places/1
+  # PATCH/PUT /places/1.json
+  def update
+    respond_to do |format|
+      if @place.update(place_params)
+        format.html { redirect_to @place, notice: 'Place was successfully updated.' }
+        format.json { render :show, status: :ok, location: @place }
+      else
+        format.html { render :edit }
+        format.json { render json: @place.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # DELETE /places/1
+  # DELETE /places/1.json
   def destroy
     @place.destroy
     flash[:success] = t(:place_deleted)
@@ -27,7 +66,7 @@ class PlacesController < ApplicationController
   private
 
     def place_params
-      params.require(:place).permit(:content, :picture)
+      params.require(:place).permit(:name, :description, :mass, :latitude, :longitude, :picture, :collected_at)
     end
 
     def correct_user

@@ -12,18 +12,34 @@
     </section>
   </aside>
   <div class="col-md-8">
-    <%= render 'follow_form' if logged_in? %>
     <% if @user.places.any? %>
       <h3><%= t('pluralize.place', count: 2) %> (<%= @user.places.count %>)</h3>
-      <ol class="places" id="places">
-        <%= render @places %>
-      </ol>
-      <%# usersコントローラー内でUserオブジェクトでないPlaceオブジェクトを
-          ページネーションするので、対象を明示的に指定する -%>
-      <div id="infinite-scrolling">
-        <div id="loader"></div>
-        <%= will_paginate @places %>
-      </div>
+
+      <% if logged_in? and current_user?(@user) %>
+        <%= link_to t('.new_place'), new_place_path, class: "btn btn-primary" %>
+      <% end %>
+
+      <br>
+
+      <%= will_paginate @places %>
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th><%= Place.human_attribute_name(:name) %></th>
+            <th><%= Place.human_attribute_name(:mass) %></th>
+            <th><%= Place.human_attribute_name(:collected_at) %></th>
+            <% if logged_in? and current_user?(@user) %>
+              <th colspan="3"></th>
+            <% else %>
+              <th></th>
+            <% end %>
+          </tr>
+        </thead>
+        <tbody>
+          <%= render @places %>
+        </tbody>
+      </table>
+      <%= will_paginate @places %>
     <% end %>
   </div>
 </div>

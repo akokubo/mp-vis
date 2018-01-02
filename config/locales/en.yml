@@ -39,11 +39,12 @@ en:
 ### Views ###
   layouts:
     footer:
-      international_environmental_education_program_on_micro_plastics_html: 'International Environmental Education Program on Micro-plastics by <a href="https://www.jamstec.go.jp/">JAMSTEC</a> and <a href="https://www.hi-tech.ac.jp/">HIT</a>'
+      international_environmental_education_program_on_micro_plastics_html: 'International Environmental Education Program on Micro-plastics<br>by <a href="https://www.jamstec.go.jp/">JAMSTEC</a> and <a href="https://www.hi-tech.ac.jp/">HIT</a>'
       news: "News"
     header:
       app_name: "Mapping Micro-plastics"
       home: "Home"
+      places_list: "Places"
       users_list: "Users"
       account: "Account"
       profile: "Profile"
@@ -54,10 +55,32 @@ en:
       ja: "Japanese"
       en: "English"
   places:
+    edit:
+      back: "Back"
+      editing_place: "Editing Place"
+      show: "Show"
+    form:
+      post: "Post"
+    index:
+      are_you_sure: "Are you sure?"
+      destroy: "Destroy"
+      edit: "Edit"
+      listing_places: "Lisiting Places"
+      new_place: "New Place"
+      show: "Show"
+    new:
+      back: "Back"
+      new_place: "New Place"
     place:
+      collected: "Collected %{time_ago} ago."
+      edit: "Edit"
+      destroy: "Destroy"
       posted: "Posted %{time_ago} ago."
-      delete: "delete"
-      you_sure: "You sure?"
+      show: "Show"
+      are_you_sure: "You sure?"
+    show:
+      back: "Back"
+      edit: "Edit"
   password_resets:
     edit:
       reset_password: "Reset password"
@@ -78,7 +101,6 @@ en:
       the_form_contains: "The form contains %{errors}."
       error_count: "error"
     place_form:
-      compose_new_place: "Compose new place..."
       post: "Post"
       maximum_file_size: "Maximum file size is 5MB. Please choose a smaller file."
     user_info:
@@ -93,6 +115,7 @@ en:
       title: "Help"
     logged_in_home:
       place_feed: "Place Feed"
+      map: "Map"
   users:
     follow:
       follow: "Follow"
@@ -113,7 +136,8 @@ en:
       create_my_account: "Create my account"
     show_follow:
       view_my_profile: "view my profile"
-
+    show:
+      new_place: "New Place"
   # users/show
   pluralize:
     place:

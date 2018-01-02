@@ -1,49 +1,94 @@
 # michaelのマイクロポスト
 orange:
-  content: "I just ate an orange!"
+  name: "I just ate an orange!"
+  description: <%= Faker::Lorem.sentence(20) %>
+  mass: Random.rand(10.0)
+  latitude: Random.rand(-90.0 .. 90.0)
+  longitude: Random.rand(-180.0 .. 180.0)
+  collected_at: <%= 20.minutes.ago %>
   created_at: <%= 10.minutes.ago %>
   user: michael
 
 tau_manifesto:
-  content: "Check out the @tauday site by @mhartl: http://tauday.com"
+  name: "Check out the @tauday site by @mhartl: http://tauday.com"
+  description: <%= Faker::Lorem.sentence(20) %>
+  mass: Random.rand(10.0)
+  latitude: Random.rand(-90.0 .. 90.0)
+  longitude: Random.rand(-180.0 .. 180.0)
+  collected_at: <%= 4.years.ago %>
   created_at: <%= 3.years.ago %>
   user: michael
 
 cat_video:
-  content: "Sad cats are sad: http://youtu.be/PKffm2uI4dk"
+  name: "Sad cats are sad: http://youtu.be/PKffm2uI4dk"
+  description: <%= Faker::Lorem.sentence(20) %>
+  mass: Random.rand(10.0)
+  latitude: Random.rand(-90.0 .. 90.0)
+  longitude: Random.rand(-180.0 .. 180.0)
+  collected_at: <%= 3.hours.ago %>
   created_at: <%= 2.hours.ago %>
   user: michael
 
 most_recent:
-  content: "Writing a short test"
+  name: "Writing a short test"
+  description: <%= Faker::Lorem.sentence(20) %>
+  mass: Random.rand(10.0)
+  latitude: Random.rand(-90.0 .. 90.0)
+  longitude: Random.rand(-180.0 .. 180.0)
+  collected_at: <%= 10.minutes.ago %>
   created_at: <%= Time.zone.now %>
   user: michael
 
 # 30件作る
 <% 30.times do |n| %>
 place_<%= n %>:
-  content: <%= Faker::Lorem.sentence(5) %>
+  name: <%= Faker::Lorem.sentence(5) %>
+  description: <%= Faker::Lorem.sentence(20) %>
+  mass: Random.rand(10.0)
+  latitude: Random.rand(-90.0 .. 90.0)
+  longitude: Random.rand(-180.0 .. 180.0)
+  collected_at: <%= 43.days.ago %>
   created_at: <%= 42.days.ago %>
   user: michael
 <% end %>
 
 # michael以外のマイクロポスト
 ants:
-  content: "Oh, is that what you want? Because that's how you get ants!"
+  name: "Oh, is that what you want? Because that's how you get ants!"
+  description: <%= Faker::Lorem.sentence(20) %>
+  mass: Random.rand(10.0)
+  latitude: Random.rand(-90.0 .. 90.0)
+  longitude: Random.rand(-180.0 .. 180.0)
+  collected_at: <%= 3.years.ago %>
   created_at: <%= 2.years.ago %>
   user: archer
 
 zone:
-  content: "Danger zone!"
+  name: "Danger zone!"
+  description: <%= Faker::Lorem.sentence(20) %>
+  mass: Random.rand(10.0)
+  latitude: Random.rand(-90.0 .. 90.0)
+  longitude: Random.rand(-180.0 .. 180.0)
+  collected_at: <%= 4.days.ago %>
   created_at: <%= 3.days.ago %>
   user: archer
 
 tone:
-  content: "I'm sorry. Your words made sense, but your sarcastic tone did not."
+  name: "I'm sorry. Your words made sense, but your sarcastic tone did not."
+  description: <%= Faker::Lorem.sentence(20) %>
+  mass: Random.rand(10.0)
+  latitude: Random.rand(-90.0 .. 90.0)
+  longitude: Random.rand(-180.0 .. 180.0)
+  collected_at: <%= 20.minutes.ago %>
   created_at: <%= 10.minutes.ago %>
   user: lana
 
 van:
-  content: "Dude, this van's, like, rolling probable cause."
+  name: "Dude, this van's, like, rolling probable cause."
+  description: <%= Faker::Lorem.sentence(20) %>
+  mass: Random.rand(10.0)
+  latitude: Random.rand(-90.0 .. 90.0)
+  longitude: Random.rand(-180.0 .. 180.0)
+  collected_at: <%= 5.hours.ago %>
   created_at: <%= 4.hours.ago %>
   user: lana
