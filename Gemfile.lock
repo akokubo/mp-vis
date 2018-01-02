@@ -53,6 +53,8 @@ GEM
       sass (>= 3.3.4)
     bootstrap-will_paginate (1.0.0)
       will_paginate
+    bootstrap3-datetimepicker-rails (4.17.47)
+      momentjs-rails (>= 2.8.1)
     builder (3.2.3)
     byebug (9.1.0)
     carrierwave (1.2.1)
@@ -282,12 +284,14 @@ GEM
     mini_magick (4.8.0)
     mini_mime (1.0.0)
     mini_portile2 (2.3.0)
-    minitest (5.10.3)
+    minitest (5.11.0)
     minitest-reporters (1.1.19)
       ansi
       builder
       minitest (>= 5.0)
       ruby-progressbar
+    momentjs-rails (2.17.1)
+      railties (>= 3.1)
     multi_json (1.12.2)
     nenv (0.3.0)
     netrc (0.11.0)
@@ -455,6 +459,7 @@ DEPENDENCIES
   bcrypt (= 3.1.11)
   bootstrap-sass (= 3.3.7)
   bootstrap-will_paginate (= 1.0.0)
+  bootstrap3-datetimepicker-rails (~> 4.17.47)
   byebug (= 9.1.0)
   carrierwave (= 1.2.1)
   coffee-rails (= 4.2.2)
@@ -467,6 +472,7 @@ DEPENDENCIES
   listen (= 3.1.5)
   mini_magick (= 4.8.0)
   minitest-reporters (= 1.1.19)
+  momentjs-rails (>= 2.9.0)
   pg (= 0.21.0)
   puma (= 3.11.0)
   rails (= 5.1.4)
