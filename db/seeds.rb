@@ -20,12 +20,14 @@ end
 
 # 6人分のマイクロポストを50件ずつ生成する
 users = User.order(:created_at).take(6)
+random = Random.new()
 50.times do
-  name = Faker::Lorem.sentence(5)
-  description = Faker::Lorem.sentence(20)
-  mass = Random.rand(10.0).round(3)
-  latitude = Random.rand(-90.0 .. 90.0).round(7)
-  longitude = Random.rand(-180.0 .. 180.0).round(7)
-  collected_at = Time.zone.now
-  users.each { |user| user.places.create!(name: name, description: description, mass: mass, latitude: latitude, longitude: longitude, collected_at: collected_at) }
+  users.each { |user| user.places.create!(
+    name: Faker::Lorem.sentence(5),
+    description: Faker::Lorem.sentence(20),
+    mass: (random.rand(10.0)).round(3),
+    latitude: (random.rand((-90.0)..(90.0))).round(7),
+    longitude: (random.rand((-180.0)..(180.0))).round(7),
+    collected_at: Time.zone.now)
+  }
 end
