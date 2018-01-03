@@ -26,8 +26,13 @@ function initMap() {
 
         // 情報ウィンドウの生成
         var content = "<h1>" + place.name + "</h1>";
-        content += "<p>" + place.description + "</p>";
-        content += "<p><img src=\"" + place.picture + "\" alt=\"" + place.name + "\" width=\"400\"></p>";
+        if (typeof place.description !== "undefined" && place.description !== null) {
+            content += "<p>" + place.description + "</p>";
+        }
+        if (typeof place.picture.url !== "undefined" && place.picture.url !== null) {
+            content += "<p><img src=\"" + place.picture + "\" alt=\"" + place.name + "\" width=\"400\"></p>";
+        }
+
         var infoWindow = new google.maps.InfoWindow({
             content: content
         });
@@ -38,7 +43,7 @@ function initMap() {
         });
     }
 
-    $.getJSON("places.json", function (places) {
+    $.getJSON("/places.json", function (places) {
         var i = 0;
         while (i < places.length) {
             addMarker(places[i]);
