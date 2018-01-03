@@ -51,22 +51,6 @@ class UsersController < ApplicationController
     redirect_to users_url
   end
 
-  def following
-    @title = t(:following)
-    @user = User.find(params[:id])
-    # フォローしているユーザーたち
-    @users = @user.following.paginate(page: params[:page])
-    render 'show_follow'
-  end
-
-  def followers
-    @title = t(:followers)
-    @user = User.find(params[:id])
-    # フォローされているユーザーたち
-    @users = @user.followers.paginate(page: params[:page])
-    render 'show_follow'
-  end
-
   private
 
     def user_params

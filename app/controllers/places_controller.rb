@@ -32,8 +32,6 @@ class PlacesController < ApplicationController
       flash[:success] = t(:place_created)
       redirect_to root_url
     else
-      # homeを表示させるのに、@feed_itemsが必要なため
-      @feed_items = []
       render 'static_pages/home'
     end
   end

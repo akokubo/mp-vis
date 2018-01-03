@@ -20,8 +20,6 @@ ja:
         email: "メールアドレス"
         password: "パスワード"
         password_confirmation: "パスワード(確認)"
-        following: "フォロー"
-        follower: "フォロワー"
     errors:
       messages:
         should_be_less_than_5MB: "は5MB以下にしてください"
@@ -112,10 +110,6 @@ ja:
       place_feed: "タイムライン"
       map: "マップ"
   users:
-    follow:
-      follow: "フォロー"
-    unfollow:
-      unfollow: "フォロー解除"
     user:
       delete: "削除"
       you_sure: "本当に削除しますか？"
@@ -129,8 +123,6 @@ ja:
     new:
       sign_up: "登録"
       create_my_account: "アカウントを作成"
-    show_follow:
-      view_my_profile: "ユーザー情報を見る"
     show:
       new_place: "場所の登録"
   # users/show
@@ -188,10 +180,6 @@ ja:
   profile_updated: "ユーザー情報を更新しました"
   # users/destroy
   user_deleted: "ユーザーを削除しました"
-  # users/following
-  following: "フォロー"
-  # users/followers
-  followers: "フォロワー"
 
 ### Helpers ###
   # application_helper

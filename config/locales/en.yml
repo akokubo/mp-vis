@@ -117,10 +117,6 @@ en:
       place_feed: "Place Feed"
       map: "Map"
   users:
-    follow:
-      follow: "Follow"
-    unfollow:
-      unfollow: "Unfollow"
     user:
       delete: "delete"
       you_sure: "You sure?"
@@ -134,8 +130,6 @@ en:
     new:
       sign_up: "Sign up"
       create_my_account: "Create my account"
-    show_follow:
-      view_my_profile: "view my profile"
     show:
       new_place: "New Place"
   # users/show
@@ -176,10 +170,6 @@ en:
   profile_updated: "Profile updated"
   # users/destroy
   user_deleted: "User deleted"
-  # users/following
-  following: "Following"
-  # users/followers
-  followers: "Followers"
 
 ### Helpers ###
   # application_helper

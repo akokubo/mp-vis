@@ -29,12 +29,3 @@ users = User.order(:created_at).take(6)
   collected_at = Time.zone.now
   users.each { |user| user.places.create!(name: name, description: description, mass: mass, latitude: latitude, longitude: longitude, collected_at: collected_at) }
 end
-
-# Following relationships
-# 最初のユーザーが2から50番目をフォローし、3から40番目からフォローさせる
-users = User.all
-user = users.first
-following = users[2..50]
-followers = users[3..40]
-following.each { |followed| user.follow(followed) }
-followers.each { |follower| follower.follow(user) }
