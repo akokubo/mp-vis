@@ -6,7 +6,14 @@ class PlacesController < ApplicationController
   # GET /places
   # GET /places.json
   def index
-    @places = Place.paginate(page: params[:page])
+    respond_to do |format|
+      format.html {
+        @places = Place.paginate(page: params[:page])
+      }
+      format.json {
+        @places = Place.all
+      }
+    end
   end
 
   # GET /places/1
