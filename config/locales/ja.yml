@@ -157,7 +157,8 @@ ja:
   please_log_in: "ログインしてください。"
 
   # places/create
-  place_created: "場所を投稿しました！"
+  place_created: "場所を投稿しました"
+  place_updated: "場所を更新しました"
   place_deleted: "場所を削除しました"
 
   # password_resets/create

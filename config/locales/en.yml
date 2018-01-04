@@ -147,7 +147,8 @@ en:
   please_log_in: "Please log in."
 
   # places/create
-  place_created: "Place created!"
+  place_created: "Place created"
+  place_updated: "Place updated"
   place_deleted: "Place deleted"
 
   # password_resets/create

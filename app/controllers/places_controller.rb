@@ -24,7 +24,7 @@ class PlacesController < ApplicationController
 
   # GET /places/new
   def new
-    @place = current_user.places.build(latitude: 40.5092745, longitude: 141.4311736)
+    @place = current_user.places.build(collected_at: Time.zone.now, latitude: 40.5092745, longitude: 141.4311736)
   end
 
   # GET /places/1/edit
@@ -37,9 +37,9 @@ class PlacesController < ApplicationController
     @place = current_user.places.build(place_params)
     if @place.save
       flash[:success] = t(:place_created)
-      redirect_to root_url
+      redirect_to places_url
     else
-      render 'static_pages/home'
+      render :new
     end
   end
 
@@ -48,11 +48,11 @@ class PlacesController < ApplicationController
   def update
     respond_to do |format|
       if @place.update(place_params)
-        format.html { redirect_to @place, notice: 'Place was successfully updated.' }
-        format.json { render :show, status: :ok, location: @place }
+        flash[:success] = t(:place_updated)
+        format.html {
+          redirect_to @place }
       else
-        format.html { render :edit }
-        format.json { render json: @place.errors, status: :unprocessable_entity }
+        render :edit
       end
     end
   end
@@ -71,7 +71,7 @@ class PlacesController < ApplicationController
   private
 
     def place_params
-      params.require(:place).permit(:name, :description, :mass, :latitude, :longitude, :picture, :collected_at)
+      params.require(:place).permit(:name, :description, :mass, :latitude, :longitude, :picture, :collected_at, {photos: []})
     end
 
     def correct_user
