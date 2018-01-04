@@ -23,5 +23,7 @@ module MpVis
     config.i18n.available_locales = [:ja, :en]
     config.i18n.enforce_available_locales = true
     config.i18n.default_locale = :en
+
+    config.time_zone = 'Tokyo'
   end
 end
