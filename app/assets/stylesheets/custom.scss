@@ -242,6 +242,10 @@ span.picture {
     flex: 1;
 }
 
+a.navbar-brand img {
+    display: inline;
+}
+
 footer {
     background-color: #f5f5f5;
 }
@@ -290,3 +294,4 @@ footer div.xs-row {
         display: none;
     }
 }
+
