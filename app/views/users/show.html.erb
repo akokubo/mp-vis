@@ -13,7 +13,7 @@
       <h3><%= t('pluralize.place', count: 2) %> (<%= @user.places.count %>)</h3>
 
       <% if logged_in? and current_user?(@user) %>
-        <%= link_to t('.new_place'), new_place_path, class: "btn btn-primary" %>
+        <%= link_to t('.new_place'), new_place_path, class: "btn btn-primary", "data-turbolinks" => "false" %>
       <% end %>
 
       <br>

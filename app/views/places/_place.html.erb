@@ -2,9 +2,9 @@
   <td><%= place.name %></td>
   <td><%= place.mass %></td>
   <td><%= place.collected_at %></td>
-  <td><%= link_to t('.show'), place %></td>
+  <td><%= link_to t('.show'), place, "data-turbolinks" => "false" %></td>
   <% if logged_in? and current_user?(place.user) %>
-      <td><%= link_to t('.edit'), edit_place_path(place) %></td>
+      <td><%= link_to t('.edit'), edit_place_path(place), "data-turbolinks" => "false" %></td>
       <td><%= link_to t('.destroy'), place, method: :delete, data: { confirm: t('.are_you_sure') } %></td>
   <% end %>
 </tr>
