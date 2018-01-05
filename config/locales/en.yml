@@ -60,6 +60,8 @@ en:
       editing_place: "Editing Place"
       show: "Show"
     form:
+      delete: "Delete"
+      are_you_sure: "Are you sure?"
       post: "Post"
     index:
       are_you_sure: "Are you sure?"

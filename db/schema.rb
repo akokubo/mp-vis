@@ -10,19 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180103072345) do
+ActiveRecord::Schema.define(version: 20180104064006) do
 
   create_table "places", force: :cascade do |t|
     t.text "description"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "picture"
     t.string "name"
     t.float "mass"
     t.float "latitude"
     t.float "longitude"
     t.datetime "collected_at"
+    t.string "photos"
     t.index ["user_id", "created_at"], name: "index_places_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_places_on_user_id"
   end

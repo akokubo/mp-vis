@@ -32,7 +32,6 @@ class PlacesController < ApplicationController
   end
 
   # POST /places
-  # POST /places.json
   def create
     @place = current_user.places.build(place_params)
     if @place.save
@@ -44,21 +43,16 @@ class PlacesController < ApplicationController
   end
 
   # PATCH/PUT /places/1
-  # PATCH/PUT /places/1.json
   def update
-    respond_to do |format|
-      if @place.update(place_params)
-        flash[:success] = t(:place_updated)
-        format.html {
-          redirect_to @place }
-      else
-        render :edit
-      end
+    if @place.update(place_params)
+      flash[:success] = t(:place_updated)
+      redirect_to @place
+    else
+      render :edit
     end
   end
 
   # DELETE /places/1
-  # DELETE /places/1.json
   def destroy
     @place.destroy
     flash[:success] = t(:place_deleted)
@@ -71,7 +65,7 @@ class PlacesController < ApplicationController
   private
 
     def place_params
-      params.require(:place).permit(:name, :description, :mass, :latitude, :longitude, :picture, :collected_at, {photos: []})
+      params.require(:place).permit(:name, :description, :mass, :latitude, :longitude, :collected_at, {photos: []})
     end
 
     def correct_user

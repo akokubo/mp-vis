@@ -15,7 +15,7 @@
     <td><div id="map-position-show" style="width: 100%; height: 205px; border: 1px solid black;"></div></td>
   </tr>
   <script src="/google-map-position-show.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC3igLoXPMmVDozoUpdWh2BVvoXR0alB0w&callback=initMapPositionShow" async defer></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC3igLoXPMmVDozoUpdWh2BVvoXR0alB0w&amp;callback=initMapPositionShow" async defer></script>
   <tr>
     <th><%= Place.human_attribute_name('latitude') %></th>
     <td id="place_latitude"><%= @place.latitude %></td>
@@ -36,9 +36,13 @@
     <th><%= Place.human_attribute_name('description') %></th>
     <td><%= @place.description %></td>
   </tr>
-    <tr>
-    <th><%= Place.human_attribute_name('picture') %></th>
-    <td><%= @place.picture %><br><%= image_tag @place.picture if @place.picture? %></td>
+  <tr>
+    <th><%= Place.human_attribute_name('photos') %></th>
+    <td>
+      <% @place.photos.each do |photo| %>
+        <%= image_tag photo %>
+      <% end %>
+    </td>
   </tr>
 </table>
 

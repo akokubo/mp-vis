@@ -6,7 +6,7 @@ function initMap() {
 
     // マップの生成
     var map = new google.maps.Map($("#map")[0], {
-        zoom: 11,
+        zoom: 3,
         center: {
             lat: 40.4998235,
             lng: 141.5320309
@@ -26,11 +26,15 @@ function initMap() {
 
         // 情報ウィンドウの生成
         var content = "<h1>" + place.name + "</h1>";
+        content += "<p>Mass: " + place.mass + "</p>";
+        content += "<p>Collected At: " + place.collected_at + "</p>";
+
         if (typeof place.description !== "undefined" && place.description !== null) {
             content += "<p>" + place.description + "</p>";
         }
-        if (typeof place.picture.url !== "undefined" && place.picture.url !== null) {
-            content += "<p><img src=\"" + place.picture + "\" alt=\"" + place.name + "\" width=\"400\"></p>";
+        if (place.photos.length > 0) {
+            var index = Math.floor(Math.random(place.photos.length));
+            content += "<p><img src=\"" + place.photos[index].url + "\" alt=\"" + place.name + "\" width=\"200\"></p>";
         }
 
         var infoWindow = new google.maps.InfoWindow({

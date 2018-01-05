@@ -15,7 +15,9 @@ Rails.application.routes.draw do
     # ユーザーの有効化を行うリソース
     resources :account_activations, only: [:edit]
     # パスワード再設定を行うリソース(newとcreateがエントリー、editとupdateが再設定)
-    resources :password_resets,     only: [:new, :create, :edit, :update]
-    resources :places
+    resources :password_resets, only: [:new, :create, :edit, :update]
+    resources :places do
+        resources :photos, only: [:create, :destroy]
+    end
   end
 end
