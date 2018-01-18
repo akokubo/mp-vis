@@ -56,12 +56,21 @@ en:
       en: "English"
   places:
     edit:
-      back: "Back"
-      editing_place: "Editing Place"
-      show: "Show"
-    form:
-      delete: "Delete"
       are_you_sure: "Are you sure?"
+      add_more_photos: "Add more photos"
+      add_photos: "Add photos"
+      back: "Back"
+      current_photos: "Current photos"
+      editing_place: "Editing Place"
+      post: "Update"
+      show: "Show"
+      upload: "Upload"
+    form:
+      add_more_photos: "Add more photos"
+      add_photos: "Add photos"
+      are_you_sure: "Are you sure?"
+      current_photos: "Current photos"
+      delete: "Delete"
       post: "Post"
     index:
       are_you_sure: "Are you sure?"
@@ -73,6 +82,7 @@ en:
     new:
       back: "Back"
       new_place: "New Place"
+      post: "Create"
     place:
       collected: "Collected %{time_ago} ago."
       edit: "Edit"

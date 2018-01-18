@@ -22,7 +22,7 @@ class PhotosController < ApplicationController
     end
 
     def add_more_photos(new_photos)
-      photos = @place.photos 
+      photos = @place.photos
       photos += new_photos
       @place.photos = photos
     end
@@ -31,7 +31,11 @@ class PhotosController < ApplicationController
       remain_photos = @place.photos # copy the array
       deleted_photo = remain_photos.delete_at(index) # delete the target photo
       deleted_photo.try(:remove!) # delete photo from S3
-      @place.photos = remain_photos # re-assign back
+      if remain_photos.any?
+        @place.photos = remain_photos # re-assign back
+      else
+        @place.remove_photos!
+      end
     end
 
     def photos_params

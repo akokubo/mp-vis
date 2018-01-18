@@ -36,7 +36,7 @@ class PlacesController < ApplicationController
     @place = current_user.places.build(place_params)
     if @place.save
       flash[:success] = t(:place_created)
-      redirect_to places_url
+      redirect_to @place
     else
       render :new
     end
@@ -44,8 +44,14 @@ class PlacesController < ApplicationController
 
   # PATCH/PUT /places/1
   def update
-    if @place.update(place_params)
+    if @place.update(place_params_except_photos)
       flash[:success] = t(:place_updated)
+      if place_params_only_photos[:photos].present?
+        photos = @place.photos.any? ? @place.photos : []
+        photos += place_params_only_photos[:photos]
+        @place.photos = photos
+        flash[:error] = "Failed uploading photos" unless @place.save
+      end
       redirect_to @place
     else
       render :edit
@@ -66,6 +72,14 @@ class PlacesController < ApplicationController
 
     def place_params
       params.require(:place).permit(:name, :description, :mass, :latitude, :longitude, :collected_at, {photos: []})
+    end
+
+    def place_params_except_photos
+      params.require(:place).permit(:name, :description, :mass, :latitude, :longitude, :collected_at)
+    end
+
+    def place_params_only_photos
+      params.require(:place).permit({photos: []})
     end
 
     def correct_user

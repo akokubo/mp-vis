@@ -49,12 +49,22 @@ ja:
       en: "英語"
   places:
     edit:
-      back: "戻る"
-      editing_place: "場所の編集"
-      show: "詳細表示"
-    form:
-      delete: "削除"
       are_you_sure: "本当に削除しますか？"
+      add_more_photos: "写真を追加"
+      add_photos: "写真を追加"
+      back: "戻る"
+      current_photos: "写真"
+      delete: "削除"
+      editing_place: "場所の編集"
+      post: "保存"
+      show: "詳細表示"
+      upload: "アップロード"
+    form:
+      add_more_photos: "写真を追加"
+      add_photos: "写真を追加"
+      are_you_sure: "本当に削除しますか？"
+      current_photos: "写真"
+      delete: "削除"
       post: "保存"
     index:
       are_you_sure: "本当に削除しますか？"
@@ -62,10 +72,12 @@ ja:
       edit: "編集"
       listing_places: "場所の一覧"
       new_place: "場所を登録"
+      post: "保存"
       show: "詳細表示"
     new:
       back: "戻る"
       new_place: "場所の登録"
+      post: "登録"
     place:
       collected: "%{time_ago}前に採取"
       edit: "編集"

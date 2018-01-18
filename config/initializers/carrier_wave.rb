@@ -12,6 +12,8 @@ if Rails.env.production?
     # for access restrict
     # config.fog_public = false
     # config.fog_authenticated_url_expiration = 60
+
+    config.remove_previously_stored_files_after_update = false
   end
 end
 

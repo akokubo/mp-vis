@@ -39,9 +39,11 @@
   <tr>
     <th><%= Place.human_attribute_name('photos') %></th>
     <td>
-      <% @place.photos.each do |photo| %>
-        <%= image_tag photo %>
-      <% end %>
+      <div class="row">
+        <% @place.photos.each do |photo| %>
+          <div class="col-md-3"><%= image_tag photo, class: "img-responsive" %></div>
+        <% end %>
+      </div>
     </td>
   </tr>
 </table>

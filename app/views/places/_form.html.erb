@@ -50,9 +50,23 @@
   <script src="/google-map-position-edit.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC3igLoXPMmVDozoUpdWh2BVvoXR0alB0w&amp;callback=initMapPositionEdit" async defer></script>
 
-  <div class="form-group">
-    <%= f.label :photos %>
-    <%= f.file_field :photos, multiple: true, onchange: "previewFiles()" %>
+  <% if @place.photos.present? %>
+    <label><%= t('.current_photos') %></label>
+    <div class="row">
+      <% @place.photos.each_with_index do |photo, index| %>
+        <div class="col-md-3" style="margin-bottom: 30px;">
+          <%= image_tag photo.url, class: "img-responsive" %>
+          <%= link_to t('.delete'), place_photo_path(@place, index), method: :delete, data: { confirm: t('.are_you_sure') } %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+
+  <div class="form-inline">
+    <div class="field form-group">
+      <%= f.label :photos, @place.photos.present? ? t('.add_more_photos') : t('.add_photos') %>
+      <%= f.file_field :photos, multiple: true, onchange: "previewFiles()", class: "form-control", style: "border: none; box-shadow: none;" %>
+    </div>
     <div id="images_preview"></div>
   </div>
 
@@ -63,7 +77,7 @@
 
           function readAndPreview(file) {
               // Make sure `file.name` matches our extensions criteria
-              if ( /\.(jpe?g|png|gif)$/i.test(file.name) ) {
+              if (/\.(jpe?g|png|gif)$/i.test(file.name)) {
                   var reader = new FileReader();
 
                   reader.addEventListener("load", function () {
@@ -71,24 +85,22 @@
                       image.height = 100;
                       image.title = file.name;
                       image.src = this.result;
-                      preview.appendChild( image );
+                      preview.appendChild(image);
                   }, false);
                   reader.readAsDataURL(file);
               }
           }
+
           if (files) {
+              $("#images_preview").empty();
               [].forEach.call(files, readAndPreview);
           }
       }
   </script>
 
-  <% @place.photos.each_with_index do |photo, index| %>
-    <%= image_tag photo.url, width: 96 %>
-    <%= link_to t('.delete'), place_photo_path(@place, index), method: :delete, data: { confirm: t('.are_you_sure') } %>
-    <br>
-  <% end %>
+  <br>
 
   <div class="form-group">
-    <%= f.submit t('.post'), class: "btn btn-primary" %>
+    <%= submit_tag t('.post'), class: "btn btn-primary" %>
   </div>
 <% end %>
